@@ -17,7 +17,7 @@ class Artefact < ActiveRecord::Base
   private
 
   def upload_to_s3
-    s3 = Aws::S3::Resource.new(region: ENV['us-west-2'])
+    s3 = Aws::S3::Resource.new
     obj = s3.bucket(ENV['S3_BUCKET']).object(file_name)
     obj.upload_file(upload.path, acl: 'public-read')
     self.key = obj.public_url
