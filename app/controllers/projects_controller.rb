@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.delete
+    @project.destroy
     respond_to do |format|
       format.html { redirect_to root_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
